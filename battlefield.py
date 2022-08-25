@@ -1,19 +1,40 @@
 from robot import Robot
 from dinosaur import Dinosaur
 
+
 class Battlefield:
     def __init__(self):
         self.robot = Robot('Optimus Prime')
         self.dinosaur = Dinosaur('Godzilla', 30)
-    
+
     def run_game(self):
-        pass
+        self.display_welcome()
+        self.battle_phase()
+        self.display_winner()
 
     def display_welcome(self):
-        pass
+        print('\nWelcome to ROBOT vs. DINOSAUR!')
+        print(
+            f'This epic showdown is between {self.robot.name} and {self.dinosaur.name}.')
 
     def battle_phase(self):
-        pass
+        continue_battle = True
+
+        while continue_battle:
+            if self.dinosaur.health > 0:
+                self.dinosaur.attack(self.robot)
+            else:
+                continue_battle = False
+
+            if self.robot.health > 0:
+                self.robot.attack(self.dinosaur)
+            else:
+                continue_battle = False
 
     def display_winner(self):
-        pass
+        if self.robot.health == 0:
+            winner = self.dinosaur.name
+        elif self.dinosaur.health == 0:
+            winner = self.robot.name
+
+        print(f'\nWinner! {winner} is the last one standing.')

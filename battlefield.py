@@ -23,12 +23,11 @@ class Battlefield:
         while continue_battle:
             if self.dinosaur.health > 0:
                 self.dinosaur.attack(self.robot)
-            else:
-                continue_battle = False
 
             if self.robot.health > 0:
                 self.robot.attack(self.dinosaur)
-            else:
+
+            if self.robot.health <= 0 or self.dinosaur.health <= 0:
                 continue_battle = False
 
     def display_winner(self):

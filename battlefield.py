@@ -1,6 +1,6 @@
 from fleet import Fleet
 from herd import Herd
-from random import randrange, randint
+from random import randint
 
 
 class Battlefield:

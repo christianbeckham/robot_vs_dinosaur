@@ -5,7 +5,7 @@ class Dinosaur:
         self.health = 100
 
     def attack(self, rival, power_level):
-        power_of_attack = self.attack_power * power_level
+        power_of_attack = round(self.attack_power * power_level, 0)
 
         if rival.health - power_of_attack > 0:
             rival.health = rival.health - power_of_attack

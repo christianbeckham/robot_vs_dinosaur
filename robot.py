@@ -9,7 +9,8 @@ class Robot:
 
     def attack(self, rival, power_level):
         self.select_weapon()
-        power_of_attack = self.active_weapon.attack_power * power_level
+        power_of_attack = round(
+            self.active_weapon.attack_power * power_level, 0)
 
         if rival.health - power_of_attack > 0:
             rival.health = rival.health - power_of_attack

@@ -4,13 +4,12 @@ class Dinosaur:
         self.attack_power = attack_power
         self.health = 100
 
-    def attack(self, robot):
+    def attack(self, rival, power_level):
+        power_of_attack = self.attack_power * power_level
 
-        if robot.health - self.attack_power > 0:
-            robot.health = robot.health - self.attack_power
+        if rival.health - power_of_attack > 0:
+            rival.health = rival.health - power_of_attack
         else:
-            robot.health = 0
+            rival.health = 0
 
-        print(
-            f'\n{self.name} attacked {robot.name} with an attack power of {self.attack_power}.')
-        print(f'\t{robot.name}\'s health is now at {robot.health}.')
+        print(f'{self.name} attacked causing {power_of_attack} damage points.')
